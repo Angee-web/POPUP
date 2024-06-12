@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popup</title>
+
+    <STYLE>
+        .container{
+            width:100%;
+            height:100vh;
+            display:flex;
+            background: grey;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn{
+            padding: 10px 60px;
+            background: rgb(104, 20, 104);
+            color:white;
+            cursor:pointer;
+            font-weight: bold;
+            border:none;
+            border-radius: 25px;
+        }
+
+        .popup{
+            width:300px;
+            background: rgb(208, 192, 192);
+            border-radius: 10px;
+            position:absolute;
+            top:0;
+            left:50%;
+            transform: translate(-50%, -50%) scale(0.1);
+            padding: 10px;
+            text-align: center;
+            color:rgb(16, 82, 16);
+            visibility: hidden;
+            transition: transform 0.4s, top 0.4s;
+        }
+
+        .open-popup{
+            visibility: visible;
+            top:50%;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .popup button{
+            width: 100%;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            background: rgb(22, 112, 22);
+            color:white;
+            border:none;
+            font-size: larger;
+            font-weight: bold;
+            border-radius: 5px;
+            outline:0;
+        }
+
+
+    </STYLE>
+</head>
+<body>
+    <div class="container">
+        
+                <!-- submit button -->
+        <button type="submit" class="btn" onclick="openPopup()">Submit</button>
+        <div class="popup" id="popup">
+            <h2>Thank you!</h2> 
+            <p>successful submission</p>
+            <button type="button" onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+
+    <SCRIPT>
+        // GET THE ELEMENT TO APPEND TO
+        let popup = document.getElementById("popup");
+// FUNCTION TO OPEN THE POPUP
+        function openPopup(){
+popup.classList.add("open-popup");
+        }
+// FUNCTION TO CLOSE THE POPUP-REMOVING THE OPENPOPUP EVENT
+        function closePopup(){
+popup.classList.remove("open-popup");
+        }
+    </SCRIPT>
+</body>
+</html>

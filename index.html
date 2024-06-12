@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- internal styling -->
+    <style>
+        
+        .container{
+            width:100%;
+            height:100vh;
+            display:flex;
+            background: linear-gradient(rgb(10, 108, 10), rgb(219, 202, 202));
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn{
+            padding: 10px 60px;
+            background: white;
+            cursor:pointer;
+            font-weight: bold;
+            border:none;
+            border-radius: 25px;
+        }
+
+        .popup{
+            width:300px;
+            background: rgb(208, 192, 192);
+            border-radius: 10px;
+            position:absolute;
+            top:0;
+            left:50%;
+            transform: translate(-50%, -50%) scale(0.1);
+            padding: 10px;
+            text-align: center;
+            color:rgb(16, 82, 16);
+            visibility: hidden;
+            transition: transform 0.4s, top 0.4s;
+        }
+
+        .open-popup{
+            visibility: visible;
+            top:50%;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .popup button{
+            width: 100%;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            background: rgb(22, 112, 22);
+            color:white;
+            border:none;
+            font-size: larger;
+            font-weight: bold;
+            border-radius: 5px;
+            outline:0;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- creating a popup notification -->
+    <div class="container">
+        <form>
+            <h3>Kindly submit your details for consideration</h3>
+
+            <label>Name:</label><br>
+            <input type="text" for="name"><br>
+            <label>Email:</label><br>
+            <input type="email" for="name"><br>
+            <label>Password:</label><br>
+            <input type="password" for="name"><br><br>
+                <!-- button for popup -->
+                <button type="submit" class="btn"  onclick="openPopup()">Submit</button>
+            </form>
+        </div>
+        <!-- popup message -->
+        <div class="popup" id="popup">
+            <h2>Thank you!</h2> 
+            <p>Successful submission of your details</p>
+            <button type="button" onclick="closePopup()">OK</button>
+        </div>
+    </div>
+    
+
+<!-- internal JS -->
+<SCRIPT>
+    
+    // let popup = document.getElementById("popup");
+    // let btn = document.getElementById("btn");
+
+    // btn.addEventListener("submit", function(e){
+    //     e.preventDefault();
+    //     openPopup();
+    // })
+// // GETTING THE ELEMENT TO APPEND FUNCTIONS TO
+    let form = document.querySelector("form");
+// INSPECTION
+    console.log(form)
+// ADDING EVENT LISTENER TO THE FORM TO PREVENT THE DEFAULT OF SUBMISSION THAT REFRESHES THE PAGE AND AUTOMATICALLY TRIGGERS THE CLOSEPOPUP FUNCTION WHICH MAKES IT TO FLASH AND GO AWAY AND NOT STAY
+    form.addEventListener("submit", function(e){
+     e.preventDefault();
+     openPopup();   
+    })
+
+    function openPopup(e){
+        // e.preventDefault();
+popup.classList.add("open-popup");
+    }
+
+    function closePopup(){
+popup.classList.remove("open-popup");
+    }
+</SCRIPT>
+</body>
+</html>
